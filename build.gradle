@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'war'
+sourceSets {
+   main {
+      java {
+         srcDir 'main/packages'
+         
+      }
+       resources {
+       srcDir 'main/resources'
+       }
+   }
+	
+   test {
+      java {
+         srcDir 'unit-tests/packages'
+      }
+   }
+}
+repositories {
+   jcenter()
+}
+
+dependencies {
+compile group: 'org.apache.ibatis', name: 'ibatis-sqlmap', version: '2.3.4.726'
+compile group: 'org.apache.cxf', name: 'cxf-bundle-jaxrs', version: '2.2.9'
+compile group: 'org.springframework', name: 'spring-core', version: '3.2.2.RELEASE'
+compile group: 'org.springframework.security', name: 'spring-security-core', version: '3.2.2.RELEASE'
+compile group: 'org.codehaus.jackson', name: 'jackson-jaxrs', version: '1.9.13'
+   compile 'org.slf4j:slf4j-api:1.7.12'
+   testCompile 'junit:junit:4.12'
+}
+
